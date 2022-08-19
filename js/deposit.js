@@ -1,11 +1,13 @@
 document.getElementById('btn-deposit').addEventListener('click', function () {
     const depositField = document.getElementById('deposit-field');
-    if (depositField.value === '') {
+    const depositAmount = parseFloat(depositField.value);
+    if (isNaN(depositAmount)) {
 
         alert("input number please");
+        depositField.value = '';
     }
     else {
-        const depositAmount = parseFloat(depositField.value);
+
         const depositTotalElement = document.getElementById('deposit-total');
         const depositTotal = parseFloat(depositTotalElement.innerText);
         depositTotalElement.innerText = depositAmount + depositTotal;
